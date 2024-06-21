@@ -8,6 +8,7 @@ import CountUp from "react-countup";
 
 function Home() {
   return (
+    // day 1
     <section id="home">
       <Navbar />
 
