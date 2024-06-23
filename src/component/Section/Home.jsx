@@ -5,55 +5,104 @@ import Button from "../Button/Button";
 import "./Home.css";
 import ProjectsBtn from "../ProjectsBtn";
 import CountUp from "react-countup";
+import picture from "../../assets/portrait.avif";
+import segun from "../../assets/segun.jpg";
+
+import { FaGithub } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { LiaDownloadSolid } from "react-icons/lia";
+import CountupComponent from "../Countup";
+import { fadeIn } from "../variant";
+import { AnimatePresence, motion } from "framer-motion";
 
 function Home() {
   return (
-    // day 1
     <section id="home">
-      <Navbar />
+      {/* <Navbar /> */}
+
+      <div className="home-introduction">
+        <div
+          style={{
+            width: "100%",
+          }}
+        >
+          <h1
+            variants={fadeIn(100)}
+            initial="hidden"
+            animate="show"
+            exit="hidden"
+            className="home-primary-header"
+          >
+            I'm Babatunde Segun <br />A Software <span>Developer</span>
+          </h1>
+
+          {/* remenber to add paadding to footer */}
+          <div className="detail-flex-container">
+            <div className="detail-flex-container-max-width">
+              <div className="detail-holding-container">
+                <p>specialization:</p>
+                <h4>Software development</h4>
+              </div>
+              <div className="detail-holding-container">
+                <p>Based in:</p>
+                <h4>Lagos, Nigeria</h4>
+              </div>
+              <div className="sidebar-icons-container">
+                <div>
+                  <FaGithub className="sidebar-icon" />
+                </div>
+                <div>
+                  <FaInstagram className="sidebar-icon" />
+                </div>
+                <div>
+                  <FaLinkedinIn className="sidebar-icon" />
+                </div>
+                <div>
+                  <FaXTwitter className="sidebar-icon" />
+                </div>
+              </div>
+
+              <CountupComponent />
+
+              <div className="sidebar-button-container">
+                <Button color="white" backgroundColor="orangered">
+                  Download Cv
+                  <LiaDownloadSolid />
+                </Button>
+              </div>
+            </div>
+
+            <div className="dpb">
+              <ProjectsBtn />
+            </div>
+          </div>
+        </div>
+        <div className="home-introduction-img-container">
+          <img src={segun} alt="picture" className="home-introduction-img" />
+        </div>
+      </div>
 
       <div className="home-main-content">
         <div>
           <Tag>Let's talk</Tag>
-
           <div>
-            <h1 className="home-primary-header">
+            <motion.h1
+              variants={fadeIn()}
+              initial="hidden"
+              whileInView="show"
+              exit="remove"
+              className="home-primary-header"
+            >
               I'm Babatunde Segun <br />A Software <span>Developer</span>
-            </h1>
+            </motion.h1>
           </div>
 
           {/* Countup Section */}
-          <div className="my-[3rem] text-[1.5rem] sm:text-3xl flex gap-[5rem]  flex-wrap">
-            <div className="  text-[orangered] ">
-              <div className="flex gap-1">
-                <CountUp
-                  start={0}
-                  end={2}
-                  delay={3}
-                  duration={5}
-                  className="text-[3rem] font-[700] mb-[1rem]"
-                />
-                +
-              </div>
-              <p className="text-[1.3rem] sm:text-xl text-[white]">
-                Years of Experience
-              </p>
-            </div>
-
-            <div className=" lg:text-3xl text-[orangered]">
-              <div className="flex gap-1">
-                <CountUp
-                  start={0}
-                  end={20}
-                  delay={1}
-                  duration={5}
-                  className="text-[3rem] font-[700] mb-[1rem]"
-                />
-                +
-              </div>
-              <p className="text-[1.3rem] sm:text-xl text-[white]">Projects</p>
-            </div>
-          </div>
+          <AnimatePresence>
+            <CountupComponent />
+          </AnimatePresence>
 
           <div className="home-btn-container">
             <Button width="10rem">My Works</Button>

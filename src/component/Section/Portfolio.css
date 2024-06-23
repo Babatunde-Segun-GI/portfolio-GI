@@ -4,11 +4,8 @@
 }
 
 .portfolio {
-  margin-top: 4rem;
+  margin-top: 10rem;
   padding-right: 2rem;
-}
-
-.portfolio-secondary-heading {
 }
 
 .portfolio-secondary-heading span {
@@ -63,4 +60,11 @@
   /* max-width: 10rem; */
 
   /* bottom: 2%; */
+}
+
+@media (max-width: 400px) {
+  .portfolio-array {
+    row-gap: 0;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  }
 }
